@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookingComponent } from './booking/booking.component';
 import { UserComponent } from './user/user.component';
@@ -24,7 +23,6 @@ import { CarSpacesComponent } from './car-spaces/car-spaces.component';
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     ApolloBoostModule,
     HttpLinkModule,

@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "type-gen": " npx apollo-codegen introspect-schema http://localhost:4000/graphql --output ./src/app/types/schema.json"
+    "schema:download": "apollo schema:download --endpoint=http://localhost:4000/graphql",
+    "codegen:generate": "apollo codegen:generate ./src/app/types  --schema=./schema.json --target=typescript --outputFlat",
+    "type-gen": "npm run schema:download && npm run codegen:generate"
   },
   "private": true,
   "dependencies": {
