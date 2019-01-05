@@ -1,3 +1,36 @@
-<p>
-  user works!
-</p>
+<div class="card" *ngIf="userObs | async as user; else loading">
+  <div class="card-body">
+    <div class="card-title">
+      {{ user.name }} ({{ user.userName }})
+    </div>
+    <div class="card-text">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-heading">My Bookings</div>
+            <ul *ngFor="let booking of user.bookings" class="list-group list-group-flush">
+              <li class="list-group-item">
+                {{ booking.carSpace.address }} is booked from {{ booking.start }} to {{ booking.end }} with {{
+                booking.user.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-heading">Bookings for my car spaces</div>
+            <ul *ngFor="let carSpace of user.carSpaces" class="list-group list-group-flush">
+              <li class="list-group-item">
+                {{ carSpace.address }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>Loading ...</div>
+</ng-template>

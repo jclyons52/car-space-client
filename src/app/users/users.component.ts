@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
   usersQuery = gql`
     query UsersQuery {
       users {
-        id,
+        id
         name
       }
     }
